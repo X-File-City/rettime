@@ -1,0 +1,230 @@
+{
+  "id": "rettime-onboarding",
+  "title": "Rettime Onboarding Tour",
+  "description": "A guided walkthrough of the Rettime type-safe event emitter library, covering its architecture, core implementation, and test suite",
+  "version": "1.0.0",
+  "audience": "New Contributors",
+  "prerequisites": [
+    "Basic understanding of TypeScript",
+    "Familiarity with event-driven patterns (EventTarget or EventEmitter)"
+  ],
+  "steps": [
+    {
+      "id": "step-1-overview",
+      "title": "Welcome to Rettime",
+      "description": "Rettime is a ~700B type-safe event emitter that combines the best of EventTarget and EventEmitter. The entire library is just two source files and a comprehensive test suite. Let's explore the codebase.",
+      "estimatedTime": 30,
+      "focusDirectory": "",
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-2-entry-point",
+      "title": "The Core: index.ts",
+      "description": "src/index.ts is the heart of the library. It defines the Emitter class with type-safe event subscription (.on, .once, .earlyOn), emission (.emit, .emitAsPromise, .emitAsGenerator), and the TypedEvent class that extends MessageEvent with preventDefault and stopPropagation support. It also exports the Emitter and EventMap type helper namespaces.",
+      "estimatedTime": 120,
+      "focusDirectory": "src",
+      "highlightLayers": [
+        {
+          "id": "entry-point",
+          "name": "Library Entry Point",
+          "color": "#3b82f6",
+          "items": [
+            {
+              "path": "src/index.ts",
+              "type": "file"
+            }
+          ],
+          "opacity": 0.8,
+          "renderStrategy": "fill"
+        }
+      ],
+      "interactiveActions": [
+        {
+          "type": "click-file",
+          "description": "Click index.ts to explore the Emitter class and TypedEvent implementation",
+          "target": "src/index.ts"
+        }
+      ],
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-3-lens-list",
+      "title": "LensList: The Data Structure",
+      "description": "LensList is a custom dual data structure that maintains both insertion order (via an array) and type-based grouping (via a Map). This enables fast event-type lookups while preserving listener execution order — critical for features like earlyOn that prepend listeners.",
+      "estimatedTime": 60,
+      "focusDirectory": "src",
+      "highlightLayers": [
+        {
+          "id": "lens-list",
+          "name": "LensList Module",
+          "color": "#8b5cf6",
+          "items": [
+            {
+              "path": "src/lens-list.ts",
+              "type": "file"
+            }
+          ],
+          "opacity": 0.8,
+          "renderStrategy": "fill"
+        }
+      ],
+      "interactiveActions": [
+        {
+          "type": "click-file",
+          "description": "Click lens-list.ts to see the dual-structure implementation",
+          "target": "src/lens-list.ts"
+        }
+      ],
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-4-test-suite",
+      "title": "Test Suite",
+      "description": "Rettime has 14 runtime test files covering every feature: basic emission, promises, generators, event cancellation, abort signals, custom events, wildcard listeners, and more. The test/typings/ directory contains compile-time type tests using expectTypeOf.",
+      "estimatedTime": 90,
+      "focusDirectory": "test",
+      "highlightLayers": [
+        {
+          "id": "runtime-tests",
+          "name": "Runtime Tests",
+          "color": "#22c55e",
+          "items": [
+            {
+              "path": "test/emit.test.ts",
+              "type": "file"
+            },
+            {
+              "path": "test/emit-as-promise.test.ts",
+              "type": "file"
+            },
+            {
+              "path": "test/emit-as-generator.test.ts",
+              "type": "file"
+            },
+            {
+              "path": "test/once.test.ts",
+              "type": "file"
+            },
+            {
+              "path": "test/event-abort.test.ts",
+              "type": "file"
+            },
+            {
+              "path": "test/event-prevent-default.test.ts",
+              "type": "file"
+            }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "fill"
+        },
+        {
+          "id": "type-tests",
+          "name": "Type Tests",
+          "color": "#06b6d4",
+          "items": [
+            {
+              "path": "test/typings",
+              "type": "directory"
+            }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ],
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-5-configuration",
+      "title": "Build & Configuration",
+      "description": "The project uses tsdown for building (ESM output to build/), Vitest for testing with type-checking enabled, and pnpm for package management. TypeScript is configured with ES2022 target and bundler module resolution. The #src/* path alias maps internal imports.",
+      "estimatedTime": 60,
+      "focusDirectory": "",
+      "highlightLayers": [
+        {
+          "id": "build-config",
+          "name": "Build & Test Config",
+          "color": "#f59e0b",
+          "items": [
+            {
+              "path": "tsdown.config.ts",
+              "type": "file"
+            },
+            {
+              "path": "vitest.config.ts",
+              "type": "file"
+            },
+            {
+              "path": "tsconfig.json",
+              "type": "file"
+            }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "fill"
+        },
+        {
+          "id": "package-config",
+          "name": "Package & Release",
+          "color": "#ef4444",
+          "items": [
+            {
+              "path": "package.json",
+              "type": "file"
+            },
+            {
+              "path": "release.config.json",
+              "type": "file"
+            }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "fill"
+        }
+      ],
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-6-full-picture",
+      "title": "The Full Picture",
+      "description": "You've now seen the complete Rettime architecture: two focused source files (Emitter + LensList), a thorough test suite, and minimal configuration. The library's power comes from its type-safe generics, Symbol-based private state, Proxy-based event interception, and WeakMap listener options. Happy contributing!",
+      "estimatedTime": 30,
+      "focusDirectory": "",
+      "highlightLayers": [
+        {
+          "id": "source-layer",
+          "name": "Source Code",
+          "color": "#3b82f6",
+          "items": [
+            {
+              "path": "src",
+              "type": "directory"
+            }
+          ],
+          "opacity": 0.6,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "test-layer",
+          "name": "Tests",
+          "color": "#22c55e",
+          "items": [
+            {
+              "path": "test",
+              "type": "directory"
+            }
+          ],
+          "opacity": 0.6,
+          "renderStrategy": "border"
+        }
+      ],
+      "colorMode": "fileTypes"
+    }
+  ],
+  "metadata": {
+    "author": "Rettime Contributors",
+    "createdAt": "2026-03-11",
+    "tags": [
+      "onboarding",
+      "architecture",
+      "tutorial"
+    ]
+  }
+}
