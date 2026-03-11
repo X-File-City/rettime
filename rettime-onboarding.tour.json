@@ -12,7 +12,7 @@
     {
       "id": "step-1-overview",
       "title": "Welcome to Rettime",
-      "description": "Rettime is a ~700B type-safe event emitter that combines the best of EventTarget and EventEmitter. The entire library is just two source files and a comprehensive test suite. Let's explore the codebase.",
+      "description": "Rettime is a 700B type-safe event emitter that combines the best of EventTarget and EventEmitter. The entire library is just two source files and a comprehensive test suite. Let's explore the codebase.",
       "estimatedTime": 30,
       "focusDirectory": "",
       "colorMode": "fileTypes"
@@ -20,7 +20,7 @@
     {
       "id": "step-2-entry-point",
       "title": "The Core: index.ts",
-      "description": "src/index.ts is the heart of the library. It defines the Emitter class with type-safe event subscription (.on, .once, .earlyOn), emission (.emit, .emitAsPromise, .emitAsGenerator), and the TypedEvent class that extends MessageEvent with preventDefault and stopPropagation support. It also exports the Emitter and EventMap type helper namespaces.",
+      "description": "src/index.ts is the heart of the library. It defines the Emitter class with type-safe event subscription, emission, and the TypedEvent class that extends MessageEvent with preventDefault and stopPropagation support. It also exports the Emitter and EventMap type helper namespaces.",
       "estimatedTime": 120,
       "focusDirectory": "src",
       "highlightLayers": [
@@ -136,7 +136,7 @@
     {
       "id": "step-5-configuration",
       "title": "Build & Configuration",
-      "description": "The project uses tsdown for building (ESM output to build/), Vitest for testing with type-checking enabled, and pnpm for package management. TypeScript is configured with ES2022 target and bundler module resolution. The #src/* path alias maps internal imports.",
+      "description": "The project uses tsdown for building (ESM output to build/), Vitest for testing with type-checking enabled, and pnpm for package management. TypeScript is configured with ES2022 target and bundler module resolution. The src path alias maps internal imports.",
       "estimatedTime": 60,
       "focusDirectory": "",
       "highlightLayers": [
